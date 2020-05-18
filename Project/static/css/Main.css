@@ -1,0 +1,48 @@
+.header {
+	position: sticky;
+	background-color: #000000;
+	width: 100%;
+	padding: 1%;
+}
+#logo {
+	width: 100%;
+	margin-top: 8%;
+}
+.nav_top li {
+	list-style: none;
+	float: left;
+	margin: 1% 5%;
+}
+.nav_top a {
+	text-decoration: none;
+	color: #ffffff;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.nav_top a:hover {
+	color: gray;
+}
+.top_icon img {
+	float: left;
+	margin: 10% 5%;
+	width: 40%;
+}
+.top_icon a:hover {
+	text-decoration: none;
+}
+.content {
+	margin: 10% 5%;
+	float: left;
+	background-color: #ffff;
+}
+.content ul {
+	list-style: none;
+}
+.content li {
+	text-align: center;
+	width: 150px;
+	float: right;
+}
+.content a {
+	color: black;
+	text-decoration: none;
+}

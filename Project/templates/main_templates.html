@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>Bad Code Studio</title>
+	{% load static %}
+	<link rel="shortcut icon" href="{% static 'img/icon.png' %}" type="image/x-icon">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'css/Main.css' %}">
+</head>
+<body>
+{% block header %}
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block list %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+<script href="{% static '/css/bootstrap.min.js' %}"></script>
+</body>
+</html>

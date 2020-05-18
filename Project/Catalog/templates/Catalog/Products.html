@@ -1,0 +1,26 @@
+{% extends "header.html" %}
+{% block list %}
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<ul>
+					<li>
+						{% for post in object_list %}
+						<a href="/Catalog/{{post.id}}">
+							<img src="{{post.img.url}}">
+							<h4>
+								{{post.title}}
+							</h4>
+							<h5>
+								{{post.date|date:"d-m-Y"}}
+							</h5>
+						</a>
+						{% endfor %}
+					</li>
+				</ul>
+			</div>	
+		</div>
+	</div>
+</div>
+{% endblock %}
