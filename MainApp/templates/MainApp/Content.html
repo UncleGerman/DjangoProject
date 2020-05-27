@@ -1,0 +1,87 @@
+{% extends 'footer.html' %}
+{% load static %}
+{% block content %}
+<style type="text/css">
+	.carousel,
+	.carousel-inner,
+	.carousel-inner .item,
+	.carousel-inner img {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.aut_baner {
+		background-color: black;
+	}
+</style>
+<div id ="myCarousel" class="carousel slide">
+	<ol class="carousel-indicators">
+		<li data-target = "#myCarousel" data-slide-to = "0" class="active"></li>
+		<li data-target = "#myCarousel" data-slide-to = "1"></li>
+		<li data-target = "#myCarousel" data-slide-to = "2"></li>
+	</ol>
+	<div class="carousel-inner">
+
+		<div class="item active">
+			<img src="{% static '\img\slider-item(0).jpg'%}" alt="Main">
+			<div class="carousel-caption">
+				<h3>Main slider</h3>
+			</div>
+		</div>
+
+		<div class="item">
+			<img src="http://placehold.it/900x300/9c6/cf9/?text=Second" alt="Second">
+			<div class="carousel-caption">
+				<h3>Second slider</h3>
+			</div>
+		</div>
+
+		<div class="item">
+			<img src="http://placehold.it/900x300/69c/9cf/?text=Third" alt="Third">
+			<div class="carousel-caption">
+				<h3>Third slider</h3>
+			</div>
+		</div>
+
+	</div>
+
+	<a class="carousel-control left" href="#myCarousel" data-slide ="prev">
+		<span class ="icon-prev"></span>
+	</a>
+
+	<a class="carousel-control right" href="#myCarousel" data-slide ="next">
+		<span class ="icon-next"></span>
+	</a>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="aut_baner">
+			<div class="col-md-8">
+				<h3>
+					Вы не авторезированы!
+				</h3>
+			</div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-dark">
+					Dark
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="cont">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				{% for ContentList in object_list %}
+					<a href="/Catalog/{{post.id}}">
+						<img src="{{ContentList.image.url}}">
+					</a>
+					<p>
+						{{ContentList.article_text}}
+					</p>	
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

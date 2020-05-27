@@ -1,0 +1,68 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block footer %}
+<style type="text/css">
+	.footer {
+		background-color: black;
+		padding: 2%;
+				font-size: 1.5vw;
+		color: white;
+	}
+	p{
+
+}
+</style>
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<ul>
+					<li>
+						<a href="\Catalog\Products.html">
+							Catalog
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Contact
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							News
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							About Us
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							About Us
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<div class="social">
+					<h3>
+						FOLLOW US
+					</h3>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="footer-details">
+					<img id="logo" src="{% static '\img\logo.png' %}">
+					<p>
+						Built on a foundation of durability, quality and value, 5.11 Tactical leads the industry in delivering functionally innovative gear, head to toe.
+					</p>
+					<p>
+						© 2020 5.11, Inc. All rights reserved.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
