@@ -1,0 +1,67 @@
+{% extends "dashboard.html" %}
+{% block admin_panel %}
+{% load static %}
+<div class="col-md-auto">
+	<table class="table">
+		{% for orderitem in orderitem %}
+		{% if orderitem.order.user == request.user  %}
+		{% if forloop.counter0 == 1 %}
+		<thead>
+			<tr>
+				<th scope="col">
+					Id
+				</th>
+				<th scope="col">
+					Date Created
+				</th>
+				<th scope="col">
+					Date Update
+				</th>
+				<th scope="col">
+					Status
+				</th>
+			</tr>
+		</thead>
+		{% endif %}
+		<tr>
+			<td>
+				{{ orderitem.order.id }}
+			</td>
+			<td>
+				{{ orderitem.order.created }}
+			</td>
+			<td>
+				{{ orderitem.order.updated }}
+			</td>
+			<td>
+				{{ orderitem.order.paid }}
+			</td>
+			<td>
+				<a href="{% url 'account:delete_order' pk=orderitem.order.pk %}">
+					<button type="submit" class="btn btn_cart" title="Remove Order">
+						<span>
+							Remove
+						</span>
+					</button>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{{ orderitem.product.product_name }}
+			</td>
+			<td>
+				<img src="{{ orderitem.product.product_img.url }}" width="200px" height="250px">
+			</td>
+			<td>
+				{{ orderitem.quantity }}
+			</td>
+			<td>
+				{{ orderitem.price }}
+			</td>
+		</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

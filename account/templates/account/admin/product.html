@@ -1,0 +1,82 @@
+{% extends "dashboard.html" %}
+{% block admin_panel %}
+{% load static %}
+<style type="text/css">
+	.form_cont input, .form_cont button {
+		width: 100%;
+	}
+</style>
+<div class="col-md-auto">
+	<table class="table table-sm table-hover">
+		<thead>
+			<tr>
+				<th scope="col">
+					Id
+				</th>
+				<th scope="col">
+					Product Name
+				</th>
+				<th scope="col">
+					Category
+				</th>
+				<th scope="col">
+					Product Price
+				</th>
+				<th scope="col">
+					Available
+				</th>
+				<th scope="col">
+					Product Stock
+				</th>
+				<th class="form_cont">
+					<a href="{% url 'account:add_product' %}">
+						<button type="submit" class="btn btn-dark" title="Create New Product">
+							<span>
+								Create
+							</span>
+						</button>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		{% for product in product %}
+		<tr>
+			<th scope="row">
+				{{ product.id }}
+			</th>
+			<td>
+				{{ product.product_name }}
+			</td>
+			<td>
+				{{ product.category }}
+			</td>
+			<td>
+				{{ product.product_price }}
+			</td>
+			<td>
+				{{ product.available }}
+			</td>
+			<td>
+				{{ product.product_stock }}
+			</td>
+			<td>
+				<a href="{% url 'account:update_product' pk=product.pk %}">
+					<button type="submit" class="btn btn-dark" title="Update">
+						<span>
+							Update
+						</span>
+					</button>
+				</a>
+				<a href="{% url 'account:delete_product' pk=product.pk %}">
+					<button type="submit" class="btn btn-dark" title="Delete">
+						<span>
+							Delete
+						</span>
+					</button>
+				</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

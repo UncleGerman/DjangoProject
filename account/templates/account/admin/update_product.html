@@ -1,0 +1,8 @@
+{% extends "dashboard.html" %}
+{% block admin_panel %}
+<form action="." method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input class=" btn btn-dark" type="submit" value="Update" readonly="readonly">
+</form>
+{% endblock %}

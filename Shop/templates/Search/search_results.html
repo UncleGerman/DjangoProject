@@ -1,0 +1,10 @@
+{% extends "main_templates.html" %}
+{% block Search %}
+<h1>Search Results</h1>
+
+{% for product in object_list %}
+<h3>
+	{{product.product_name}}
+</h3>
+{% endfor %} 
+{% endblock %}

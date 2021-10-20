@@ -1,0 +1,168 @@
+body {
+  background-color: #ffff;
+  color: #ffff;
+}
+h1 {
+  font-size: 2.2vw;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+h5 {
+  font-size: 1.5vw;
+  font-family: Times, Times New Roman, Georgia, serif;
+}
+p {
+  font-size: 1vw;
+  font-family: Times, Times New Roman, Georgia, serif;
+}
+a {
+  font-size: 10vw;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+@import "/css/StyleText.css";
+
+.nav-top {background-color: #ffff;}
+.nav {
+  background-color: black;
+  opacity: 0.8;
+}
+.navbar-brand {width: 40%;}
+.navbar-brand img {
+  margin-left: 5%;
+  width: 20%;
+}
+.icon {
+  width: 100%;
+  margin-right: 2%;
+}
+.icon img {
+  margin-left: 1%;
+  float: right;
+  width: 2.6%;
+  height: 2.6%;
+}
+
+.nav_cotalog {
+ position: fixed;
+ margin-top: 8%;
+ left: 0;
+ top: 0;
+ width: 15%;
+}
+.nav_cotalog li {
+  list-style: none;
+}
+.nav_cotalog a {
+  color: #ffff;
+} 
+.nav_cotalog a:hover {
+  color: #28a745;
+}
+.nav_main img {
+  width: 250px;
+  height: 180px;
+}
+.nav_main h4 {
+  text-align: center;
+}
+.nav_main li {
+  float: left;
+  list-style: none;
+  margin-left: 6%;
+}
+.nav_main a {
+  color: #1e5e7d;
+}
+.nav_main a:hover {
+  color: orange;
+}
+.nav_main {
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%; 
+}
+.cont-text {
+  padding: 5%;
+}
+
+/*footer*/
+.list-unstyled { 
+  margin-top: -5%; 
+  margin-left: 8%;
+}
+.list-unstyled li {padding-top: 2%;}
+.list-unstyled a {
+  font-size: 1vw;
+  text-decoration: none;
+  color: #074c16;
+}
+.list-unstyled a:hover {color: orange;}
+{box-sizing: border-box;}
+
+/*form*/
+
+/* Всплывающая форма-скрыта по умолчанию */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 40%;
+  border: 0.1vw solid #000;
+  z-index: 9;
+}
+
+/* Добавить стили для контейнера формы */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: #000;
+  opacity: 0.9;
+}
+
+.form-container img {
+  float: right;
+  width: 30px;
+  height: 30px;
+} 
+
+/* Поля ввода полной ширины */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Когда входы получают фокус, сделайте что-нибудь */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Установите стиль для кнопки отправить/войти */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Добавить некоторые эффекты наведения на кнопки */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.reg-cont {padding-top: 3%;}
+
+.reg-cont h2, h6 {
+  text-align: center;
+}
+.reg-cont p {
+  padding-top: 5%;
+  font-size: 1.5vw;
+}

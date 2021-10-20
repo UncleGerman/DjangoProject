@@ -1,0 +1,5 @@
+name: Fire Of History
+logo: костер, огонь + name 
+slider: first slider плитка
+about us природа,глина, производство. 
+

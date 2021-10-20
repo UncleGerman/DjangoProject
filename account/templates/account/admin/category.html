@@ -1,0 +1,70 @@
+{% extends "dashboard.html" %}
+{% block admin_panel %}
+{% load static %}
+<style type="text/css">
+	.form_cont input, .form_cont button {
+		width: 100%;
+	}
+</style>
+<div class="col-md-8">
+	<table class="table table-sm table-hover">
+		<thead>
+			<tr>
+				<th scope="col">
+					Id
+				</th>
+				<th scope="col">
+					Category Name
+				</th>
+				<th scope="col">
+					Slug
+				</th>
+				<th scope="col">
+					Category Img
+				</th>
+				<th class="form_cont">
+					<a href="{% url 'account:add_category' %}">
+						<button type="submit" class="btn btn-dark" title="Create New Category">
+							<span>
+								Create
+							</span>
+						</button>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		{% for category in category %}
+		<tr>
+			<th scope="row">
+				{{ category.id }}
+			</th>
+			<td>
+				{{ category.category_name }}
+			</td>
+			<td>
+				{{ category.slug }}
+			</td>
+			<td>
+				{{ category.category_img }}
+			</td>
+			<td>
+				<a href="{% url 'account:delete_product' pk=category.pk %}">
+					<button type="submit" class="btn btn-dark" title="Delete">
+						<span>
+							Delete
+						</span>
+					</button>
+				</a>
+				<a href="{% url 'account:update_category' pk=category.pk %}">
+					<button type="submit" class="btn btn-dark" title="Delete">
+						<span>
+							Update
+						</span>
+					</button>
+				</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

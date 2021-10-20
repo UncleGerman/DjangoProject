@@ -1,0 +1,42 @@
+{% extends "main_templates.html" %}
+{% block title %}Create an account{% endblock %}
+{% block content %}
+<style type="text/css">
+	@font-face {
+		font-family: UnitedSansReg-Heavy;
+		src: url(fonts/united-sans-cond-bold.otf);
+	}
+	.cont_login {
+		padding-top: 1.6%;
+		padding-bottom: 1.6%;
+	}
+	.cont_login h1 {
+		text-transform: uppercase;
+		font-family: 'UnitedSansReg-Heavy';
+		text-align: center;
+	}
+	.cont_login button {margin-right: 1%;}
+	.cont_login input {width: 100%;}
+</style>
+<h1>
+	1
+</h1>
+<div class="container cont_login">
+	<div class="row justify-content-md-center">
+		<div class="col-md-4">
+			<h1>Create an account</h1>
+			<form action="." method="post">
+				{{ user_form.as_p }}
+				{% csrf_token %}
+				<p>
+					If you have an account, please 
+					<a href="{% url 'account:user_login' %}">
+						sign in.
+					</a>
+				</p>
+				<p><input type="submit" value="Create my account" class="btn btn-outline-dark"></p>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

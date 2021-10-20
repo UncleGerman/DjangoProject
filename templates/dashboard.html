@@ -1,0 +1,85 @@
+{% extends "main_templates.html" %}
+{% load static %}
+{% block deshboard %}
+<style type="text/css">
+	body {
+		padding-top: 60px;
+		background-color: white;
+		color: black text-transform: uppercase;
+		font-family: 'UnitedSansReg-Heavy';
+	}
+
+	@font-face {
+		font-family: UnitedSansReg-Heavy;
+		src: url(fonts/united-sans-cond-bold.otf);
+	}
+	/* Боковое навигационное меню */
+	.sidenav {
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden; /* Отключить горизонтальную прокрутку */
+		transition: 0.5s; /* 0.5 второй эффект перехода слайда в боковой навигации*/
+	}
+
+		/* Ссылки меню навигации */
+		.sidenav a {
+			padding: 8px 50px 8px 0px;
+			text-decoration: none;
+			text-align: left;
+			font-size: 25px;
+			color: black;
+			transition: 0.3s;
+		}
+
+			/* Когда вы наводите курсор мыши на навигационные ссылки, изменяется их цвет */
+			.sidenav a:hover {
+				color: #f1f1f1;
+				border-bottom-color: #E75300;
+				border-bottom-style: solid; /* Стиль линии */
+				border-bottom-width: 3px; /* Толщина линии */
+			}
+
+	.btn_cart {
+		background-color: #E75300;
+		color: #ffff;
+	}
+
+		.btn_cart:hover {
+			background-color: #212529;
+			color: #ffff;
+		}
+</style>
+<div class="container-fluid">
+	<div class="row justify-content-md-cente">
+		<div class="col-md-3">
+			<div id="mySidenav" class="sidenav">
+				<a href="{% url 'account:user_logout' %}">
+					Logout
+				</a>
+				<a href="{% url 'account:edit' %}">
+					Edit your profile
+				</a>
+				<a href="{% url 'account:password_change' %}">
+					Change your password
+				</a>
+				<a href="{% url 'account:all_order' %}">
+					User Order
+				</a>
+				{% if request.user.is_staff %}
+				<a href="{% url 'account:all_product' %}">
+					All Product
+				</a>
+				<a href="{% url 'account:all_category' %}">
+					All Category
+				</a>
+				<a href="{% url 'account:all_order_admin' %}">
+					All Order
+				</a>
+				{% endif %}
+			</div>
+		</div>
+		{% block admin_panel %}
+		{% endblock %}
+	</div>
+</div>
+{% endblock %}

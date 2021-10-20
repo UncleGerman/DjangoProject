@@ -1,0 +1,88 @@
+{% extends "main_templates.html" %}
+{% load static %}
+{% block Product %}
+<style type="text/css">
+	.btn_cart {
+		background-color: #E75300;
+		color: #ffff;
+	}
+	.btn_cart:hover {
+		background-color: #212529;
+		color: #ffff;
+	}
+	.product-detail h1 {
+		text-transform: uppercase;
+		font-family: 'TrumpGothicWest-Bold';
+	}
+	.navbar_product {
+		border-top: 0.05vw solid black;
+		border-bottom: 0.05vw solid black;
+	}
+	.navbar_product a{
+		color: black;
+		font-size: 2vw;
+		font-family: 'TrumpGothicWest-Bold';
+	}
+	.navbar_product a:hover {
+		border-bottom: 0.2vw solid orange;
+	}
+	.product_cont {
+		margin-top: 5%;
+		margin-bottom: 8%;
+	}
+</style>
+<div class="product_cont">
+	<div class="container">
+		<div class="row">
+			<img src="{% if product.product_img %}{{ product.product_img.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" width="40%">
+			<div class="product-detail">
+				<h1>
+					{{ product.product_name }}
+				</h1>
+				<p class="price">
+					${{ product.product_price }}
+				</p>
+				<form action="" method="post">
+					{{ cart_product_form }}
+					{% csrf_token %}	
+					<button type="submit" class="btn btn_cart" title="Add to cart">
+						<span>
+							Add to cart
+						</span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	<nav class="navbar navbar-expand-lg navbar_product">
+		<div class="container">
+			<div class="navbar-collapse collapse" id="navbar10">
+				<ul class="navbar-nav nav-fill w-100">
+					<li class="nav-item">
+						<a class="nav-link" href="#">PRODUCT DETAILS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="//codeply.com">YOU MAY ALSO LIKE</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">REVIEWS</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h4 class="text-center">
+					{{ product.product_name }}
+					DETAILS
+				</h4>
+				<p>
+					{{ product.product_description|linebreaks }}
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

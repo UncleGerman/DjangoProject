@@ -1,0 +1,105 @@
+{% load static %}
+<style type="text/css">
+  .icons {
+    display: flex;
+    flex-direction: row;
+  }
+  .icons nav { 
+    margin-top: 3%; 
+    padding-left: 10%;
+  }
+  .icons_cart {
+    margin-left: -10%;
+    margin-bottom: 5%;
+  }
+  .icons_cart a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+  }
+  .icons_cart h6 {
+    color: white;
+    padding: 0% 4% 2%;
+    width: 20%;
+    height: 10%;
+    background-color: #d68a34;
+    border-radius: 50px;
+  }
+  .navbar {background: white;}
+  .icons_cart a#one {flex-grow: 1 50%;}
+  .icons_cart a#two {flex-grow: 2 10%;}
+</style>
+<nav class="fixed-top navbar navbar-expand-sm navbar-light justify-content-center">
+  <a class="nav-link navbar-brand" href="{% url 'shop:product_list' %}">
+    <img src="{% static 'img/logo_test.png' %}" style="width:64px;">
+  </a> 
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link droppdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopu="true" aria-expanded="flase">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" {% if not category %}class="selected"{% endif %} href="{% url 'shop:product_list' %}">
+            All
+          </a>
+          {% for catalog in categories %}
+          <a class="dropdown-item" href="{{ catalog.get_absolute_url }}">
+            <span>
+              {{catalog.category_name}}
+            </span>
+          </a>
+          {% endfor %}
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'shop:contact' %}">
+          Contact
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'shop:about' %}">
+          About Us
+        </a>
+      </li>
+    </ul>  
+    <form class="form-inline my-2 my-lg-0" method="get" action= "{% url 'shop:search_results' %}">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <div class="icons">
+        <nav>
+          <a href="{% url 'account:dashboard' %}">
+            <img src="{% static 'img/account.png' %}" width="50%">
+          </a>
+        </nav>
+        <div class="icons_cart">
+          <a href="{% url 'shop:cart_detail' %}">
+            {% with total_items=cart|length %}
+            {% if cart|length > 0 %}
+            <img src="{% static 'img/cart.png' %}" width="50%">
+            <h6>
+              {{ total_items }}{{ total_items|pluralize }}
+            </h6>
+            {% else %}
+            <img src="{% static 'img/cart.png' %}" width="50%">
+            <h6>
+              {{ total_items }}
+            </h6>  
+            {% endif %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon">
+    </span>
+  </button>
+</nav>

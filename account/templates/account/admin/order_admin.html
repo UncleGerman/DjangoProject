@@ -1,0 +1,93 @@
+{% extends "dashboard.html" %}
+{% block admin_panel %}
+{% load static %}
+<div class="col-md-auto">
+	<table class="table table-sm">
+		<thead>
+			<tr>
+				<th scope="col">
+					Id
+				</th>
+				<th scope="col">
+					First Name
+				</th>
+				<th scope="col">
+					Last Name
+				</th>
+				<th scope="col">
+					Paid
+				</th>
+				<th scope="col">
+					User
+				</th>
+			</tr>
+		</thead>
+		{% for orders in orders %}
+		<tr>
+			<td>
+				{{ orders.order.id }}
+			</td>
+			<td>
+				{{ orders.order.first_name }}
+			</td>
+			<td>
+				{{ orders.order.last_name }}
+			</td>
+			<td>
+				{{ orders.order.paid }}
+			</td>
+			<td>
+				{{ orders.order.user }}
+			</td>
+			<td>
+				<a href="{% url 'account:delete_order' pk=orders.pk %}">
+					<button type="submit" class="btn btn-dark" title="Delete">
+						<span>
+							Delete
+						</span>
+					</button>
+				</a>
+			</td>
+			<td>
+				<a href="{% url 'account:update_order' pk=orders.pk %}">
+					<button type="submit" class="btn btn-dark" title="Update">
+						<span>
+							Update
+						</span>
+					</button>
+				</a>
+			</td>
+			<td>
+				<a href="{% url 'account:add_product' %}">
+					<button type="submit" class="btn btn-dark" title="Info">
+						<span>
+							Info
+						</span>
+					</button>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{{ orders.product.id }}
+			</td>
+			<td>
+				{{ orders.product.product_name }}
+			</td>
+			<td>
+				<img src="{{ orders.product.product_img.url }}" width="100px" height="100px">
+			</td>
+			<td>
+				{{ orders.product.product_price }}
+			</td>
+			<td>
+				{{ orders.quantity }}
+			</td>
+			<td>
+				{{ orders.price }}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "main_templates.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+<style type="text/css">
+    @font-face {
+        font-family: UnitedSansReg-Heavy;
+        src: url(fonts/united-sans-cond-bold.otf);
+    }
+    .cont_login {
+        padding-top: 1.6%;
+        padding-bottom: 1.6%;
+    }
+    .cont_login h1 {
+        text-transform: uppercase;
+        font-family: 'UnitedSansReg-Heavy';
+        text-align: center;
+    }
+    .cont_login button {margin-right: 1%;}
+    .cont_login input {width: 100%;}
+</style>
+<div class="container cont_login">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <h1>
+                SIGN IN
+            </h1>  
+            <form action="." method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <p>
+                    If you don't have an account yet, you can create one 
+                    <a href="{% url 'account:register' %}">
+                        here.
+                    </a>
+                </p>
+                <dir class="col">
+                    <div class="row">
+                        <button type="submit" class="btn btn-outline-dark">
+                            Log-in
+                        </button>
+                        <a href="{% url 'account:password_reset' %}" class="btn btn-outline-dark">
+                            Forgotten your password?
+                        </a>
+                    </div>
+                </dir>
+            </form> 
+        </div>
+    </div>
+</div>
+{% endblock %}

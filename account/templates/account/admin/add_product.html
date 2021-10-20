@@ -1,0 +1,20 @@
+{% extends "dashboard.html" %}
+{% block admin_panel %}
+{% load static %}
+<style type="text/css">
+	.form_cont input, .form_cont button {
+		width: 100%;
+	}
+</style>
+<div class="col-md-5 form_cont">
+	<form method="POST" class="post-form">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn_cart" title="Create">
+			<span>
+				Create
+			</span>
+		</button>
+	</form>
+</div>
+{% endblock %}
